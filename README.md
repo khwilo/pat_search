@@ -1,24 +1,23 @@
-# README
+# PATENT AND SCIENTIFIC ARTICLES SEMANTIC SEARCH
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This web application collects data on patents and scientific articles for searching 
+and use by relevant people (**academia**). It identifies relationships between patents and 
+scientific articles using the capabilities of the [semantic Web](https://en.wikipedia.org/wiki/Semantic_Web).
 
-Things you may want to cover:
+## Ruby version
 
-* Ruby version
+##System dependencies
 
-* System dependencies
+## Configuration
 
-* Configuration
+## Database creation
 
-* Database creation
+## Database initialization
 
-* Database initialization
+## How to run the test suite
 
-* How to run the test suite
+## Services (job queues, cache servers, search engines, etc.)
 
-* Services (job queues, cache servers, search engines, etc.)
+## Deployment instructions
 
-* Deployment instructions
-
-* ...
+Created with love by Khwilo W. Kabaka. Find me on [Twitter](https://twitter.com/Khwilo). Open issues are welcomed.
