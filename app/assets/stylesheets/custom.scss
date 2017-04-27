@@ -64,3 +64,33 @@ p {
 	color: #fff;
 	text-decoration: none;
 }
+
+/* footer */
+footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	border-top: 3px solid #eaeaea;
+	color: #777;
+}
+
+footer a {
+	color: #fefafaf;
+}
+
+footer a:hoover {
+	color: #222;
+}
+
+footer small {
+	float: left;
+}
+
+footer ul {
+	float: right;
+	list-style: none;
+}
+
+footer ul li {
+	float: left;
+	margin-left: 15px;
+}
