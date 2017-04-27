@@ -16,10 +16,9 @@ textarea {
 
 .center {
 	text-align: center;
-}
-
-.center h1 {
-	margin-bottom: 10px;
+	h1 {
+		margin-bottom: 10px;
+	}
 }
 
 /* typography */
@@ -58,11 +57,10 @@ p {
 	letter-spacing: -1px;
 	padding-top: 5px;
 	font-weight: bold;
-}
-
-#logo:hover {
-	color: #fff;
-	text-decoration: none;
+	&:hover {
+		color: #fff;
+		text-decoration: none;
+	}
 }
 
 /* footer */
@@ -71,26 +69,21 @@ footer {
 	padding-top: 5px;
 	border-top: 3px solid #eaeaea;
 	color: #777;
-}
-
-footer a {
-	color: #fefafaf;
-}
-
-footer a:hoover {
-	color: #222;
-}
-
-footer small {
-	float: left;
-}
-
-footer ul {
-	float: right;
-	list-style: none;
-}
-
-footer ul li {
-	float: left;
-	margin-left: 15px;
+	a {
+		color: #fefafaf;
+		&:hoover {
+			color: #222;
+		}
+	}
+	small {
+		float: left;
+	}
+	ul {
+		float: right;
+		list-style: none;
+		li {
+			float: left;
+			margin-left: 15px;
+		}
+	}
 }
