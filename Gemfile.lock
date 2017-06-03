@@ -38,6 +38,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
     arel (7.1.4)
     autoprefixer-rails (6.7.7.2)
@@ -64,6 +66,9 @@ GEM
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    google_custom_search_api (2.0.0)
+      addressable
+      httparty
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -77,6 +82,8 @@ GEM
     guard-minitest (2.4.4)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
+    httparty (0.15.5)
+      multi_xml (>= 0.5.2)
     i18n (0.8.1)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -105,6 +112,7 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     multi_json (1.12.1)
+    multi_xml (0.6.0)
     nenv (0.3.0)
     nio4r (1.2.1)
     nokogiri (1.7.1)
@@ -117,6 +125,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    public_suffix (2.0.5)
     puma (3.4.0)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -200,6 +209,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.3.6)
   byebug
   coffee-rails (= 4.2.1)
+  google_custom_search_api
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
   jbuilder (= 2.4.1)
