@@ -27,4 +27,4 @@ solution = SPARQL.parse(%(
 ))
 
 result = solution.execute(queryable)
-puts result.to_tsv
+puts result.to_json
