@@ -1,23 +1,5 @@
-# PATENT AND SCIENTIFIC ARTICLES SEMANTIC SEARCH
+# PATENT SEMANTIC SEARCH 
 
-This web application collects data on patents and scientific articles for searching 
-and use by relevant people (**academia**). It identifies relationships between patents and 
-scientific articles using the capabilities of the [semantic Web](https://en.wikipedia.org/wiki/Semantic_Web).
-
-## Ruby version
-
-##System dependencies
-
-## Configuration
-
-## Database creation
-
-## Database initialization
-
-## How to run the test suite
-
-## Services (job queues, cache servers, search engines, etc.)
-
-## Deployment instructions
+This is a trivial use case of the capabilities of the [semantic Web](https://en.wikipedia.org/wiki/Semantic_Web). This web application parses RDF data in n-triples format and asserts various relationships between the graph of data. It tries to potray the effectiveness of using SPARQL queries to retrieve content information.
 
 Created with love by Khwilo W. Kabaka. Find me on [Twitter](https://twitter.com/Khwilo). Open issues are welcomed.
