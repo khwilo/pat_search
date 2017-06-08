@@ -1,61 +1,38 @@
-<section class='search-section'>
-  <div class='text-center titles-with-yellow'>
-    <h1>Search</h1>
-  </div>
-  <div class='container'>
-    <div class='text-center search-bar'>
-      <%= form_tag search_path, method: :get  do %>
-        <div class="inner-addon right-addon">
-          <i class="glyphicon glyphicon-search"></i>
-          <%= text_field_tag :q, params[:q], class: 'form-control' %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <% if @results && !@results.items.empty? %>
-    <div class='container'>
-      <% @results.items.each do |item| %>
-        <div class='row'>
-          <h4><%= link_to item.htmlTitle.html_safe, item.link %></h4>
-          <div>
-            <% if item['pagemap'] &&
-                  item['pagemap']['cse_thumbnail'] &&
-                  img = item.pagemap.cse_thumbnail.first %>
-              <div class='col-sm-2'>
-                <%= image_tag(img.src, width: '200px') %>
-              </div>
-              <div class='col-sm-10'>
-                <%= item.htmlSnippet.html_safe %>
-              </div>
-            <% else %>
-              <%= item.htmlSnippet.html_safe %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class='container search-prev-next'>
-      <div class='row text-center'>
-        <% if @results.previous_page %>
-          <%= link_to '<< Previous',
-            search_path(q: params[:q], page: @results.previous_page),
-            class: 'btn' %>
-        <% end %>
-        <% @results.pages.times do |i| %>
-          <%= link_to i + 1,
-            search_path(q: params[:q], page: i+1),
-            class: 'btn btn-page' %>
-        <% end %>
-        <% if @results.next_page %>
-          <%= link_to 'Next >>',
-            search_path(q: params[:q],
-                        page: @results.next_page),
-            class: 'btn' %>
-        <% end %>
+<div class='text-center titles-with-yellow'>
+  <h1>Search</h1>
+</div>
+<div class='container'>
+  <div class='text-center search-bar'>
+    <%= form_tag search_path, method: :get  do %>
+      <div class="inner-addon right-addon">
+        <i class="glyphicon glyphicon-search"></i>
+        <%= text_field_tag :id, params[:id], class: 'form-control' %>
       </div>
-    </div>
-  <% else %>
-    <h4>No results</h4>
+    <% end %>
+  </div>
+</div>
+
+<div>
+<% for k in 0...@counter %>
+  <% @invention = @searchCount[k]["invention"]["value"] %>
+  <% if params[:id] == @invention %>
+    <table>
+      <tr>
+        Filing Date: <td><%= @searchCount[k]["fDate"]["value"] %></td>
+      </tr>
+      <tr>
+        Lodged Date: <td><%= @searchCount[k]["lDate"]["value"] %></td>
+      </tr>
+      <tr>
+        Address: <td><%= @searchCount[k]["address"]["value"]%></td>
+      </tr>
+      <tr>
+        Organization: <td><%= @searchCount[k]["organization"]["value"] %></td>
+      </tr>
+      <tr>
+        Postcode: <td><%= @searchCount[k]["postcode"]["value"] %></td>
+      </tr>
+      </table>
   <% end %>
-</section>
+<% end %>
+</div>

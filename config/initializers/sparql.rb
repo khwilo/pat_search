@@ -9,7 +9,7 @@ def sparql_query
     
     # Retrieve the inventors, invention, dates
     query = SPARQL.parse(%(
-      SELECT DISTINCT ?invention
+      SELECT DISTINCT ?invention ?fDate ?lDate ?address ?organization ?postcode 
       WHERE {
         ?s <http://patents.data.gov.uk/def/patents/inventor> ?inventor .
         ?s <http://www.w3.org/2000/01/rdf-schema#label> ?invention .
@@ -25,13 +25,41 @@ def sparql_query
         ?locationURI <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ?lat .
         ?locationURI <http://www.w3.org/2003/01/geo/wgs84_pos#long> ?lon .
       }
+      LIMIT 5
     ))
 
     solution = query.execute(repository)
-    @result  = solution.to_json 
-    return @result
-  end
+    @result  = solution.to_json
+    @test    = JSON.parse(@result) 
+    #@test["results"]["bindings"][0]["invention"]["value"]
+    #searchCount = @test["results"]["bindings"]
+    #length = searchCount.length
+    #searchCount[0]["invention"]["value"]
+    #for k in 0...length
+    #    invention    = searchCount[k]["invention"]["value"]
+    #    filingDate   = searchCount[k]["fDate"]["value"]
+    #    lodgedDate   = searchCount[k]["lDate"]["value"]
+    #    address      = searchCount[k]["address"]["value"]
+    #    organization = searchCount[k]["organization"]["value"]
+    #    postcode     = searchCount[k]["postcode"]["value"]
+    #    puts postcode
+    #end
+    #searchCount.each do |solution|
+    #    solution.count
+    #end
 
-RESULT = sparql_query
+    #puts length
+    #return inventor
+    #return @inventor
+    #@test.length
+    return @test
+end
 
-#puts sparql_query
+#def findLength
+#  return @count
+#end
+
+#RESULT = sparql_query
+
+#puts @count
+puts sparql_query
