@@ -165,3 +165,11 @@ input, textarea, select, .uneditable-input {
 input {
 	height: auto !important;
 }
+
+table {
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #cecfd5;
+  padding: 10px 15px;
+}

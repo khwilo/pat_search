@@ -16,23 +16,22 @@
 <% for k in 0...@counter %>
   <% @invention = @searchCount[k]["invention"]["value"] %>
   <% if params[:id] == @invention %>
-    <table>
+    <table class="table">
+      <caption>RESULTS</caption>
       <tr>
-        Filing Date: <td><%= @searchCount[k]["fDate"]["value"] %></td>
-      </tr>
+	      <th scope="col" class="th">Filing Date</th>
+        <th scope="col" class="th">Lodged Date</th>
+        <th scope="col" class="th">Address</th>
+        <th scope="col" class="th">Organization</th>
+        <th scope="col" class="th">Postal Code</th>
       <tr>
-        Lodged Date: <td><%= @searchCount[k]["lDate"]["value"] %></td>
+        <td class="td"><%= @searchCount[k]["fDate"]["value"] %></td>
+	      <td class="td"><%= @searchCount[k]["lDate"]["value"] %></td> 
+	      <td class="td"><%= @searchCount[k]["address"]["value"]%></td>
+	      <td class="td"><%= @searchCount[k]["organization"]["value"] %></td>
+	      <td class="td"><%= @searchCount[k]["postcode"]["value"] %></td>
       </tr>
-      <tr>
-        Address: <td><%= @searchCount[k]["address"]["value"]%></td>
-      </tr>
-      <tr>
-        Organization: <td><%= @searchCount[k]["organization"]["value"] %></td>
-      </tr>
-      <tr>
-        Postcode: <td><%= @searchCount[k]["postcode"]["value"] %></td>
-      </tr>
-      </table>
+    </table>
   <% end %>
 <% end %>
 </div>
