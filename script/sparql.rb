@@ -7,7 +7,7 @@ queryable = RDF::Repository.load("patent_data.nt")
 
 # Retrieve the inventors, invention, dates
 solution = SPARQL.parse(%(
-  SELECT DISTINCT ?invention
+  SELECT DISTINCT ?invention 
   WHERE {
     ?s <http://patents.data.gov.uk/def/patents/inventor> ?inventor .
     ?s <http://www.w3.org/2000/01/rdf-schema#label> ?invention .
