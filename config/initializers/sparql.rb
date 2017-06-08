@@ -3,40 +3,7 @@ require 'rdf'
 require 'linkeddata'
 require 'sparql'
 
-class SearchController < ApplicationController
-  def index
-    #if params[:q]
-    #   page     = params[:page] || 1
-    #  @results = GoogleCustomSearchApi.search(params[:q], page page)
-    #end
-    @search = params[:id]
-    # RETRIEVE THE JSON RESULT
-    search = sparql_query
-
-    # The number of JSON objects to iterate
-    @searchCount = search["results"]["bindings"]
-    @counter     = @searchCount.count
-
-    #if params[:q]
-    #  for k in 0...@counter
-    #    @invention    = searchCount[k]["invention"]["value"]
-    #    if params[:q] == @invention
-    #      @filingDate   = searchCount[k]["fDate"]["value"]
-    #      @lodgedDate   = searchCount[k]["lDate"]["value"]
-    #      @address      = searchCount[k]["address"]["value"]
-    #      @organization = searchCount[k]["organization"]["value"]
-    #      @postcode     = searchCount[k]["postcode"]["value"]
-    #    else
-    #      @filingDate   = "NOT FOUND"
-    #      @lodgedDate   = "NOT FOUND"
-    #     @address      = "NOT FOUND"
-    #     @organization = "NOT FOUND"
-    #     @postcode     = "NOT FOUND"
-    #    end        
-    #  end
-  end
-
-  def sparql_query
+def sparql_query
     repository = RDF::Repository.load(File.expand_path(File.dirname(__FILE__) + "/../../script/patent_data.nt"))
     #repository = RDF::Repository.load("patent_data.nt")
     
@@ -58,12 +25,41 @@ class SearchController < ApplicationController
         ?locationURI <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ?lat .
         ?locationURI <http://www.w3.org/2003/01/geo/wgs84_pos#long> ?lon .
       }
+      LIMIT 5
     ))
 
     solution = query.execute(repository)
     @result  = solution.to_json
     @test    = JSON.parse(@result) 
-    
+    #@test["results"]["bindings"][0]["invention"]["value"]
+    #searchCount = @test["results"]["bindings"]
+    #length = searchCount.length
+    #searchCount[0]["invention"]["value"]
+    #for k in 0...length
+    #    invention    = searchCount[k]["invention"]["value"]
+    #    filingDate   = searchCount[k]["fDate"]["value"]
+    #    lodgedDate   = searchCount[k]["lDate"]["value"]
+    #    address      = searchCount[k]["address"]["value"]
+    #    organization = searchCount[k]["organization"]["value"]
+    #    postcode     = searchCount[k]["postcode"]["value"]
+    #    puts postcode
+    #end
+    #searchCount.each do |solution|
+    #    solution.count
+    #end
+
+    #puts length
+    #return inventor
+    #return @inventor
+    #@test.length
     return @test
-  end
 end
+
+#def findLength
+#  return @count
+#end
+
+#RESULT = sparql_query
+
+#puts @count
+puts sparql_query
