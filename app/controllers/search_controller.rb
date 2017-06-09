@@ -5,42 +5,20 @@ require 'sparql'
 
 class SearchController < ApplicationController
   def index
-    #if params[:q]
-    #   page     = params[:page] || 1
-    #  @results = GoogleCustomSearchApi.search(params[:q], page page)
-    #end
     @search = params[:id]
+    
     # RETRIEVE THE JSON RESULT
-    search = sparql_query
+    @searches = sparql_query
 
     # The number of JSON objects to iterate
-    @searchCount = search["results"]["bindings"]
+    @searchCount = @searches["results"]["bindings"]
     @counter     = @searchCount.count
-
-    #if params[:q]
-    #  for k in 0...@counter
-    #    @invention    = searchCount[k]["invention"]["value"]
-    #    if params[:q] == @invention
-    #      @filingDate   = searchCount[k]["fDate"]["value"]
-    #      @lodgedDate   = searchCount[k]["lDate"]["value"]
-    #      @address      = searchCount[k]["address"]["value"]
-    #      @organization = searchCount[k]["organization"]["value"]
-    #      @postcode     = searchCount[k]["postcode"]["value"]
-    #    else
-    #      @filingDate   = "NOT FOUND"
-    #      @lodgedDate   = "NOT FOUND"
-    #     @address      = "NOT FOUND"
-    #     @organization = "NOT FOUND"
-    #     @postcode     = "NOT FOUND"
-    #    end        
-    #  end
   end
 
   def sparql_query
     repository = RDF::Repository.load(File.expand_path(File.dirname(__FILE__) + "/../../script/patent_data.nt"))
-    #repository = RDF::Repository.load("patent_data.nt")
-    
-    # Retrieve the inventors, invention, dates
+        
+    # Retrieve the inventors, invention, dates, address, organization and postal code
     query = SPARQL.parse(%(
       SELECT DISTINCT ?invention ?fDate ?lDate ?address ?organization ?postcode 
       WHERE {

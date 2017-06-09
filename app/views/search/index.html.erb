@@ -15,23 +15,24 @@
 <div>
 <% for k in 0...@counter %>
   <% @invention = @searchCount[k]["invention"]["value"] %>
-  <% if params[:id] == @invention %>
+  <% if params[:id] == @invention %> 
     <table class="table">
       <caption>RESULTS</caption>
       <tr>
-	      <th scope="col" class="th">Filing Date</th>
+        <th scope="col" class="th">Filing Date</th>
         <th scope="col" class="th">Lodged Date</th>
         <th scope="col" class="th">Address</th>
         <th scope="col" class="th">Organization</th>
         <th scope="col" class="th">Postal Code</th>
+      </tr>
       <tr>
         <td class="td"><%= @searchCount[k]["fDate"]["value"] %></td>
 	      <td class="td"><%= @searchCount[k]["lDate"]["value"] %></td> 
 	      <td class="td"><%= @searchCount[k]["address"]["value"]%></td>
 	      <td class="td"><%= @searchCount[k]["organization"]["value"] %></td>
 	      <td class="td"><%= @searchCount[k]["postcode"]["value"] %></td>
-      </tr>
+      </tr>    
     </table>
-  <% end %>
+  <% end %>  
 <% end %>
 </div>

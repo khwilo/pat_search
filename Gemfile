@@ -19,10 +19,7 @@ gem 'jbuilder',       '2.4.1'
 gem 'google_custom_search_api'
 gem 'sparql-client',  '~> 2.1'
 gem 'rdf-n3',         '~> 2.1'
-gem 'stardog-rb',     '~> 0.0.6'
-gem 'spira',          '~> 2.1'
 gem 'linkeddata',     '~> 2.0'
-gem 'sigma-rails',    '~> 1.0', '>= 1.0.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.12'
