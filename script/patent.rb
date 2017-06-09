@@ -4,6 +4,7 @@ require 'net/http'
 require 'openssl'
 
 # Read the patent n-triples data
+
 graph = RDF::Graph.load('patent_data.nt')
 
 #Inspect the triples and obtain all unique values
