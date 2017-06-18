@@ -23,7 +23,6 @@ solution = SPARQL.parse(%(
     ?locationURI <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ?lat .
     ?locationURI <http://www.w3.org/2003/01/geo/wgs84_pos#long> ?lon .
   }
-  LIMIT 10
 ))
 
 result = solution.execute(queryable)
