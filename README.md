@@ -8,11 +8,15 @@ This is a trivial use case of the capabilities of the [semantic Web](https://en.
 $ git clone https://github.com/khwilo/pat_search.git
 ```  
 2. Run bundle install  
-```ruby
+```bash
 $ bundle install
 ```  
-3. Start the Rails server  
-```ruby
+3. Perform the database migration
+```bash
+$ rails db:migrate
+```
+4. Start the Rails server  
+```bash
 $ rails server 
 ```  
 
